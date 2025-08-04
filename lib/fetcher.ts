@@ -1,4 +1,5 @@
-import { API_BASE_URL } from './constants';
+import { baseUrl } from "@/config/apiConfig";
+
 
 export class FetchError extends Error {
   constructor(
@@ -23,7 +24,7 @@ export async function fetcher<T>(
   options: FetchOptions = {},
   revalidate?: number
 ): Promise<T> {
-  const url = `${API_BASE_URL}${endpoint}`;
+  const url = `${baseUrl}${endpoint}`;
 
   // Add Next.js revalidate option if provided
   const config: RequestInit & { next?: NextFetchConfig } = {
