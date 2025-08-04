@@ -1,5 +1,3 @@
-'use client';
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Package, Download, RefreshCw, MessageSquare } from 'lucide-react';
@@ -313,4 +311,9 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  // In a real app, fetch all order IDs from your data source
+  return [{ id: '1' }]; // Add more IDs as needed
 }

@@ -25,7 +25,11 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const categoryProducts = mockProducts.filter(p => p.categorySlug === params.slug);
 
   // Get unique brands for filters
-  const availableBrands = [...new Set(categoryProducts.map(p => p.brand).filter(Boolean))];
+  const brandSet = new Set<string>();
+  for (const p of categoryProducts) {
+    if (p.brand) brandSet.add(p.brand);
+  }
+  const availableBrands = Array.from(brandSet);
 
   return (
     <CategoryClientPage 
