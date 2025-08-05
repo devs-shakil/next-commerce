@@ -23,6 +23,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
   // Get products for this category
   const categoryProducts = mockProducts.filter(p => p.categorySlug === params.slug);
+  
 
   // Get unique brands for filters
   const brandSet = new Set<string>();
